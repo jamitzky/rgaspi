@@ -1,12 +1,19 @@
 # rgaspi
 rgaspi: gaspi bindings in R
 
+Authors: C. Bernau and F. Jamitzky
+
 This project consists of three subprojects organized in separate folders:
 
-basiclayer:  the R-C-interface to all necessary GPI2-functions 
-middlelayer: this layer consists of convenience functions, wrappers and 
+basiclayer:  
+the R-C-interface to all necessary GPI2-functions 
+
+middlelayer: 
+this layer consists of convenience functions, wrappers and 
             classes around the basic layer 
-toplayer:    this layer can use the middle and basic layer to implement
+            
+toplayer:    
+this layer can use the middle and basic layer to implement
             higher level aplications such as distributed matrices
 
 
