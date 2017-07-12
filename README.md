@@ -28,3 +28,21 @@ directory.*
 For the installation you also need an installed version of GPI2
 
 http://www.gpi-site.com/gpi2/
+
+
+How to use it:
+Startup R using mpiexec. Then you can initialize a distributed array over all available nodes
+which can be treated like a generic R array:
+
+```R
+library(rgaspi) 
+
+orgmat <- matrix(1:50, ncol = 10)+0.1
+
+mydmat <- dist_mat(rgaspi_info_obj= info, name = "mydmat", initdata = orgmat)
+
+#test assignment with columns only
+ci<-2:9
+mydmat[,ci] <- orgmat[,ci]+0.5
+mydmat[,]
+```
