@@ -1,0 +1,11 @@
+#we suppose that the git repository has been clonded to ~/GASPI/testbed
+#additionally we need the directory to the gaspi installation which was compiled with mpi support
+export GASPIDIR=/home/hpc/pr28fa/ri72fuv2/GASPI/MYGPIMPPD/gpi2
+cd ~/GASPI/testbed/rgaspi/basic
+unset R_LIBS
+module load R/3.3
+export PATH=$GASPIDIR/bin:$PATH
+export LD_LIBRARY_PATH=$GASPIDIR/lib64:$LD_LIBRARY_PATH
+export C_INCLUDE_PATH=/lrz/sys/applications/R/3.3.1/lib64/R/include/x86_64:/lrz/sys/applications/R/3.3.1/lib64/R/include:$GASPIDIR/include:$C_INCLUDE_PATH
+mpiicc -shared -fPIC -o rgaspi.so rgaspi.c -L/home/hpc/pr28fa/ri72fuv2/GASPI/MYGPIMPPD/gpi2/lib64 -lGPI2 -L/usr/lib64 -libverbs -lpthread
+
